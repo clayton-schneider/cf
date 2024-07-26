@@ -80,7 +80,7 @@ const WeatherList: React.FC = () => {
         </table>
         <section className="layout-row align-items-center justify-content-center mt-20 mr-20 ml-20">
           <button onClick={handleUnitChange} data-testid="unit-change-button" className="outlined">
-            Switch to {unit === "C" ? 'Farenheight' : "Celsius"}
+            Switch to {unit === "C" ? 'Fahrenheit' : "Celsius"}
           </button>
         </section>
       </div>

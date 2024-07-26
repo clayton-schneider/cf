@@ -33,11 +33,11 @@ const WeatherCard: React.FC<WeatherCardProps> = ({
   return (
     <tr className="weather-card" data-testid={`weather-card-${weather.id}`}>
       <td>{weather.city}</td>
-      <td>{unit ==="C" ? `${weather.temperature}°C` : `${celsiusToF(weather.temperature)}°F`} </td>
+      <td>{unit ==="C" ? `${weather.temperature.toFixed(1)}°C` : `${celsiusToF(weather.temperature)}°F`} </td>
       <td>{weather.description}</td>
       <td>
         <button onClick={() => handleFavoriteClick(weather.id)} data-testid={`weather-card-action-${weather.id}`}>
-          {isFavorite ? "Remove from Favorites" : "Add to favorites"}
+          {isFavorite ? "Remove from favorites" : "Add to favorites"}
         </button>
       </td>
     </tr>
