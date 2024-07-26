@@ -29,14 +29,13 @@ const WeatherList: React.FC = () => {
   const handleAddFavorite = (cityId: number) => {
     const cityToAdd = weatherData.find(place => place.id === cityId)!
     const newFavorites = [...favorites, cityToAdd]
-    console.log(newFavorites)
     setFavorites(newFavorites)
 
   };
 
   const handleRemoveFavorite = (cityId: number) => {
-    const newFavorites = [...favorites]
-    newFavorites.filter(place => place.id !== cityId)
+    console.log([...favorites])
+    const newFavorites = [...favorites].filter(place => place.id !== cityId)
     setFavorites(newFavorites)
   };
 
@@ -74,7 +73,7 @@ const WeatherList: React.FC = () => {
               unit={unit}
               onAddFavorite={handleAddFavorite}
               onRemoveFavorite={handleRemoveFavorite}
-              isFavorite={favorites.includes(place.id)}
+              isFavorite={favorites.some(fave => fave.id === place.id)}
             />
             ))}
           </tbody>
@@ -105,7 +104,7 @@ const WeatherList: React.FC = () => {
               unit={unit}
               onAddFavorite={handleAddFavorite}
               onRemoveFavorite={handleRemoveFavorite}
-              isFavorite={favorites.includes((fave: Weather) => fave.id == place.id)}
+              isFavorite={favorites.some(fave => fave.id === place.id)}
             />
 
               ))
